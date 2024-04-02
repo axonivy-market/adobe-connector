@@ -3,7 +3,7 @@
   "id" : "18822C586F9CB9FB",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "com.axonivy.connector.adobe.esign.connector.AgreementsData"
+    "data" : "com.axonivy.connector.adobe.connector.AgreementsData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -317,7 +317,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "download", "type" : "com.axonivy.connector.adobe.esign.connector.rest.DownloadResult", "desc" : "DownloadResult" },
+            { "name" : "download", "type" : "com.axonivy.connector.adobe.connector.rest.DownloadResult", "desc" : "DownloadResult" },
             { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
           ],
           "map" : {
@@ -342,7 +342,7 @@
         "method" : "JAX_RS",
         "statusErrorCode" : "ivy:error:rest:client",
         "clientCode" : [
-          "import com.axonivy.connector.adobe.esign.connector.rest.ClientService;",
+          "import com.axonivy.connector.adobe.connector.rest.ClientService;",
           "",
           "in.download = ClientService.download(client, in.filename, in.asFileOption);"
         ],
@@ -466,7 +466,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "download", "type" : "com.axonivy.connector.adobe.esign.connector.rest.DownloadResult", "desc" : "DownloadResult" },
+            { "name" : "download", "type" : "com.axonivy.connector.adobe.connector.rest.DownloadResult", "desc" : "DownloadResult" },
             { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
           ],
           "map" : {
@@ -498,7 +498,7 @@
         },
         "statusErrorCode" : "ivy:error:rest:client",
         "clientCode" : [
-          "import com.axonivy.connector.adobe.esign.connector.rest.ClientService;",
+          "import com.axonivy.connector.adobe.connector.rest.ClientService;",
           "",
           "in.download = ClientService.download(client, in.filename, in.asFileOption);"
         ],
@@ -507,7 +507,7 @@
           "documentId" : ""
         },
         "responseCode" : [
-          "import com.axonivy.connector.adobe.esign.connector.rest.ClientService;",
+          "import com.axonivy.connector.adobe.connector.rest.ClientService;",
           "in.download = ClientService.download(response, in.filename, in.asFileOption);"
         ]
       },

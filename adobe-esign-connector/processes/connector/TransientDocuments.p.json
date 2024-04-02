@@ -3,7 +3,7 @@
   "id" : "18822D67B169266A",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "com.axonivy.connector.adobe.esign.connector.TransientDocumentsData"
+    "data" : "com.axonivy.connector.adobe.connector.TransientDocumentsData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -91,7 +91,7 @@
         "callSignature" : "uploadDocument",
         "input" : {
           "params" : [
-            { "name" : "upload", "type" : "com.axonivy.connector.adobe.esign.connector.rest.UploadWrapper", "desc" : "file to upload" }
+            { "name" : "upload", "type" : "com.axonivy.connector.adobe.connector.rest.UploadWrapper", "desc" : "file to upload" }
           ],
           "map" : {
             "out.upload" : "param.upload"
@@ -135,8 +135,8 @@
         "method" : "JAX_RS",
         "statusErrorCode" : "ivy:error:rest:client",
         "clientCode" : [
-          "import com.axonivy.connector.adobe.esign.connector.rest.UploadResult;",
-          "import com.axonivy.connector.adobe.esign.connector.rest.ClientService;",
+          "import com.axonivy.connector.adobe.connector.rest.UploadResult;",
+          "import com.axonivy.connector.adobe.connector.rest.ClientService;",
           "UploadResult result = ClientService.upload(client, in.upload.filename, in.upload.bytes);",
           "",
           "if(!result.#error is initialized) {",
@@ -306,7 +306,7 @@
         "callSignature" : "uploadDocuments",
         "input" : {
           "params" : [
-            { "name" : "uploadWrappers", "type" : "java.util.List<com.axonivy.connector.adobe.esign.connector.rest.UploadWrapper>", "desc" : "file to upload" }
+            { "name" : "uploadWrappers", "type" : "java.util.List<com.axonivy.connector.adobe.connector.rest.UploadWrapper>", "desc" : "file to upload" }
           ],
           "map" : {
             "out.uploadWrappers" : "param.uploadWrappers"
@@ -399,8 +399,8 @@
         "method" : "JAX_RS",
         "statusErrorCode" : "ivy:error:rest:client",
         "clientCode" : [
-          "import com.axonivy.connector.adobe.esign.connector.rest.UploadResult;",
-          "import com.axonivy.connector.adobe.esign.connector.rest.ClientService;",
+          "import com.axonivy.connector.adobe.connector.rest.UploadResult;",
+          "import com.axonivy.connector.adobe.connector.rest.ClientService;",
           "UploadResult result = ClientService.upload(client, in.upload.filename, in.upload.bytes);",
           "",
           "if(!result.#error is initialized) {",

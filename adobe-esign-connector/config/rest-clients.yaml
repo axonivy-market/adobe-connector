@@ -4,7 +4,7 @@ RestClients:
     Url: https://{host}/api/rest/v6
     Features:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
-    - com.axonivy.connector.adobe.esign.connector.auth.OAuth2Feature
+    - com.axonivy.connector.adobe.connector.auth.OAuth2Feature
     Properties:
       AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}
       AUTH.baseUri: ${ivy.var.adobe-sign-connector.baseUri}
@@ -23,7 +23,7 @@ RestClients:
     Url: https://{host}/api/rest/v6
     Features:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
-    - com.axonivy.connector.adobe.esign.connector.auth.OAuth2Feature
+    - com.axonivy.connector.adobe.connector.auth.OAuth2Feature
     Properties:
       AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}
       AUTH.baseUri: ${ivy.var.adobe-sign-connector.baseUri}
@@ -41,8 +41,8 @@ RestClients:
     UUID: 8e96fab1-4701-47cb-ae35-d821bb12305b
     Url: https://{host}/api/rest/v6
     Features:
-    - com.axonivy.connector.adobe.esign.connector.json.OpenApiJsonFeature
-    - com.axonivy.connector.adobe.esign.connector.auth.OAuth2Feature
+    - com.axonivy.connector.adobe.connector.json.OpenApiJsonFeature
+    - com.axonivy.connector.adobe.connector.auth.OAuth2Feature
     Properties:
       AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}
       AUTH.baseUri: ${ivy.var.adobe-sign-connector.baseUri}
@@ -62,7 +62,7 @@ RestClients:
     Url: https://{host}/api/rest/v6
     Features:
     - org.glassfish.jersey.media.multipart.MultiPartFeature
-    - com.axonivy.connector.adobe.esign.connector.auth.OAuth2Feature
+    - com.axonivy.connector.adobe.connector.auth.OAuth2Feature
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     Properties:
       AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}

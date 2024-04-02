@@ -2,7 +2,7 @@
   "format" : "10.0.0",
   "id" : "188B5516C4F69340",
   "config" : {
-    "data" : "com.axonivy.connector.adobe.esign.connector.SigningReturnData"
+    "data" : "com.axonivy.connector.adobe.connector.SigningReturnData"
   },
   "elements" : [ {
       "id" : "f0",
