@@ -6,8 +6,8 @@
       "data": {
         "projects": [
           {
-            "groupId": "com.axonivy.connector.adobe.esign",
-            "artifactId": "adobe-esign-connector",
+            "groupId": "com.axonivy.connector.adobe",
+            "artifactId": "adobe-connector",
             "version": "${version}",
             "type": "iar"
           }
@@ -28,8 +28,8 @@
       "data": {
         "dependencies": [
           {
-            "groupId": "com.axonivy.connector.adobe.esign",
-            "artifactId": "adobe-esign-connector",
+            "groupId": "com.axonivy.connector.adobe",
+            "artifactId": "adobe-connector",
             "version": "${version}",
             "type": "iar"
           }

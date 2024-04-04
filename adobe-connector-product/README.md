@@ -119,7 +119,7 @@ An API Application needs to be setup at Adobe Sign admin account before OAuth ca
 | adobe-sign-connector.permissions | List of permissions that will be requested for the OAuth token | `user_read:account user_write:account user_login:account agreement_read:account agreement_write:account agreement_send:account widget_read:account widget_write:account library_read:account library_write:account workflow_read:account workflow_write:account`
 | adobe-sign-connector.oauthToken | Info about the OAuth refresh token. Empty means there is no token initialized. To request a new token use the `Save and Request new Token` button |
 | adobe-sign-connector.accessToken| Info about the OAuth access token. |
-| Redirect URI | This URI just needs to be setup to the API Application at Adobe Sign account page. (see **OAuth API Application setup** section)| `https://localhost:8444/designer/pro/adobe-esign-connector/18A83631DA63DA93/oauthResume.ivp`
+| Redirect URI | This URI just needs to be setup to the API Application at Adobe Sign account page. (see **OAuth API Application setup** section)| `https://localhost:8444/designer/pro/adobe-connector/18A83631DA63DA93/oauthResume.ivp`
 
 
 #### Requesting OAuth token
