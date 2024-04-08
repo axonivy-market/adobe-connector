@@ -3,7 +3,7 @@
   "id" : "1866EF03C86C6870",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "com.axonivy.connector.adobe.connector.UsersData"
+    "data" : "com.axonivy.connector.adobe.acrobat.sign.connector.UsersData"
   },
   "elements" : [ {
       "id" : "f0",
