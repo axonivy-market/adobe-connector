@@ -7,7 +7,6 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connector.adobe.acrobat.sign.connector.TransientDocumentsData;
-import com.axonivy.connector.adobe.acrobat.sign.connector.test.TestService;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;

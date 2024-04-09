@@ -8,17 +8,17 @@
 <h:body>
 	<ui:composition template="/layouts/frame-10-full-width.xhtml">
 		<ui:define name="title">
-			#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/Title')}
+			#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/Title')}
 		</ui:define>
 		<ui:define name="content">
 			<f:event listener="#{logic.preRender}" type="preRenderComponent" />
 			<h2>
-				#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/Header')}
+				#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/Header')}
 			</h2>
 
 			<h:form id="form">
 				<p:fieldset
-					legend="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/General')}">
+					legend="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/General')}">
 					<div class="ui-fluid ">
 						<div class="p-field p-grid p-align-baseline">
 							<div class="p-col-12 p-md-6">
@@ -42,11 +42,11 @@
 				</p:fieldset>
 
 				<p:fieldset
-					legend="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/IntegrationKey')}" >
+					legend="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/IntegrationKey')}" >
 					<div class="ui-fluid">
 						<div class="p-field p-grid p-align-baseline">
 							<div class="p-col-12">
-								<p:staticMessage severity="info" detail="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/IntegrationKeyInfo')}" />
+								<p:staticMessage severity="info" detail="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/IntegrationKeyInfo')}" />
 							</div>
 						</div>
 						<div class="p-field p-grid p-align-baseline">
@@ -62,7 +62,7 @@
 				</p:fieldset>
 
 				<p:fieldset
-					legend="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/OAuth')}">
+					legend="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/OAuth')}">
 					<div class="ui-fluid ">
 						<div class="p-field p-grid p-align-baseline">
 							<div class="p-col-12 p-md-6">
@@ -122,7 +122,7 @@
 							</div>
 							<div class="p-col-12 p-md-2">
 								<p:commandButton
-									value="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/RequestToken')}"
+									value="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/RequestToken')}"
 									icon="fa-solid fa-external-link" 
 									actionListener="#{logic.requestToken}"/>
 							</div>
@@ -141,7 +141,7 @@
 						<div class="p-field p-grid p-align-baseline">
 							<div class="p-col-12 p-md-6">
 								<p:outputLabel for="redirectUri"
-									value="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/connector/AdminSetup/RedirectURI')}" />
+									value="#{ivy.cms.co('/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/RedirectURI')}" />
 							</div>
 							<div class="p-col-12 p-md-6">
 								<p:inputTextarea id="redirectUri" value="#{adminSetupBean.redirectUri}"
