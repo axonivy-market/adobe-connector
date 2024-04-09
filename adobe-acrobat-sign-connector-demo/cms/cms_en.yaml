@@ -8,7 +8,7 @@ Dialogs:
               connector:
                 demo:
                   Demo:
-                    AdobeSignDemosA: Adobe Sign Demos. Upload PDF file, enter one or multiple signers, create an agreement and sign the document as selected signer
+                    AdobeSignDemosA: Adobe Acrobat Sign Demos. Upload PDF file, enter one or multiple signers, create an agreement and sign the document as selected signer
                     Agreement: Agreement
                     AgreementID: Agreement ID
                     AgreementID1: Agreement ID

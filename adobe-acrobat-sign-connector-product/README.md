@@ -1,7 +1,7 @@
 
-# Adobe Sign Connector
+# Adobe Acrobat Sign Connector
 
-The Adobe Sign Connector is a project that simplifies the authentication process and enables easy integration and use of Adobe Sign services for signing documents.
+The Adobe Acrobat Sign Connector is a project that simplifies the authentication process and enables easy integration and use of Adobe Sign services for signing documents.
 
 [Adobe Sign](https://www.adobe.com/sign.html)
 
