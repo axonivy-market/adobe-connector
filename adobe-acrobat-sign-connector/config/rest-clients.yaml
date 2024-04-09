@@ -6,14 +6,14 @@ RestClients:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     - com.axonivy.connector.adobe.acrobat.sign.connector.auth.OAuth2Feature
     Properties:
-      AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}
-      AUTH.baseUri: ${ivy.var.adobe-sign-connector.baseUri}
+      AUTH.scope: ${ivy.var.adobe-acrobat-sign-connector.permissions}
+      AUTH.baseUri: ${ivy.var.adobe-acrobat-sign-connector.baseUri}
       JSON.Serialization.PROPERTY_INCLUSION: NON_NULL
-      AUTH.clientId: ${ivy.var.adobe-sign-connector.clientId}
-      AUTH.clientSecret: ${ivy.var.adobe-sign-connector.clientSecret}
-      PATH.host: ${ivy.var.adobe-sign-connector.host}
-      AUTH.code: ${ivy.var.adobe-sign-connector.code}
-      AUTH.integrationKey: ${ivy.var.adobe-sign-connector.integrationKey}
+      AUTH.clientId: ${ivy.var.adobe-acrobat-sign-connector.clientId}
+      AUTH.clientSecret: ${ivy.var.adobe-acrobat-sign-connector.clientSecret}
+      PATH.host: ${ivy.var.adobe-acrobat-sign-connector.host}
+      AUTH.code: ${ivy.var.adobe-acrobat-sign-connector.code}
+      AUTH.integrationKey: ${ivy.var.adobe-acrobat-sign-connector.integrationKey}
     OpenAPI:
       SpecUrl: file:///C:/Users/jpl/Downloads/json/REST-SDK-V6-master/json/usersV3.json
       Namespace: api.rest.v6.client
@@ -25,15 +25,15 @@ RestClients:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     - com.axonivy.connector.adobe.acrobat.sign.connector.auth.OAuth2Feature
     Properties:
-      AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}
-      AUTH.baseUri: ${ivy.var.adobe-sign-connector.baseUri}
+      AUTH.scope: ${ivy.var.adobe-acrobat-sign-connector.permissions}
+      AUTH.baseUri: ${ivy.var.adobe-acrobat-sign-connector.baseUri}
       JSON.Serialization.PROPERTY_INCLUSION: NON_NULL
-      AUTH.clientId: ${ivy.var.adobe-sign-connector.clientId}
-      AUTH.clientSecret: ${ivy.var.adobe-sign-connector.clientSecret}
-      AUTH.useAppPermissions: ${ivy.var.adobe-sign-connector.useAppPermissions}
-      AUTH.useUserPassFlow: ${ivy.var.adobe-sign-connector.useUserPassFlow.enabled}
-      PATH.host: ${ivy.var.adobe-sign-connector.host}
-      AUTH.integrationKey: ${ivy.var.adobe-sign-connector.integrationKey}
+      AUTH.clientId: ${ivy.var.adobe-acrobat-sign-connector.clientId}
+      AUTH.clientSecret: ${ivy.var.adobe-acrobat-sign-connector.clientSecret}
+      AUTH.useAppPermissions: ${ivy.var.adobe-acrobat-sign-connector.useAppPermissions}
+      AUTH.useUserPassFlow: ${ivy.var.adobe-acrobat-sign-connector.useUserPassFlow.enabled}
+      PATH.host: ${ivy.var.adobe-acrobat-sign-connector.host}
+      AUTH.integrationKey: ${ivy.var.adobe-acrobat-sign-connector.integrationKey}
     OpenAPI:
       SpecUrl: file:///C:/Users/jpl/Downloads/json/REST-SDK-V6-master/json/baseUrisV3.json
       Namespace: api.rest.v6.client
@@ -44,15 +44,15 @@ RestClients:
     - com.axonivy.connector.adobe.acrobat.sign.connector.json.OpenApiJsonFeature
     - com.axonivy.connector.adobe.acrobat.sign.connector.auth.OAuth2Feature
     Properties:
-      AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}
-      AUTH.baseUri: ${ivy.var.adobe-sign-connector.baseUri}
+      AUTH.scope: ${ivy.var.adobe-acrobat-sign-connector.permissions}
+      AUTH.baseUri: ${ivy.var.adobe-acrobat-sign-connector.baseUri}
       JSON.Serialization.PROPERTY_INCLUSION: NON_NULL
-      AUTH.clientId: ${ivy.var.adobe-sign-connector.clientId}
-      AUTH.clientSecret: ${ivy.var.adobe-sign-connector.clientSecret}
-      AUTH.useAppPermissions: ${ivy.var.adobe-sign-connector.useAppPermissions}
-      AUTH.useUserPassFlow: ${ivy.var.adobe-sign-connector.useUserPassFlow.enabled}
-      PATH.host: ${ivy.var.adobe-sign-connector.host}
-      AUTH.integrationKey: ${ivy.var.adobe-sign-connector.integrationKey}
+      AUTH.clientId: ${ivy.var.adobe-acrobat-sign-connector.clientId}
+      AUTH.clientSecret: ${ivy.var.adobe-acrobat-sign-connector.clientSecret}
+      AUTH.useAppPermissions: ${ivy.var.adobe-acrobat-sign-connector.useAppPermissions}
+      AUTH.useUserPassFlow: ${ivy.var.adobe-acrobat-sign-connector.useUserPassFlow.enabled}
+      PATH.host: ${ivy.var.adobe-acrobat-sign-connector.host}
+      AUTH.integrationKey: ${ivy.var.adobe-acrobat-sign-connector.integrationKey}
     OpenAPI:
       SpecUrl: file:///C:/Users/jpl/OneDrive%20-%20Docuware%20GmbH/data/Projekte/Ricoh/HR%20Transformation/Adobe%20Sign/agreementsV2.json
       Namespace: api.rest.v6.client
@@ -65,15 +65,15 @@ RestClients:
     - com.axonivy.connector.adobe.acrobat.sign.connector.auth.OAuth2Feature
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     Properties:
-      AUTH.scope: ${ivy.var.adobe-sign-connector.permissions}
-      AUTH.baseUri: ${ivy.var.adobe-sign-connector.baseUri}
+      AUTH.scope: ${ivy.var.adobe-acrobat-sign-connector.permissions}
+      AUTH.baseUri: ${ivy.var.adobe-acrobat-sign-connector.baseUri}
       JSON.Serialization.PROPERTY_INCLUSION: NON_NULL
-      AUTH.clientId: ${ivy.var.adobe-sign-connector.clientId}
-      AUTH.clientSecret: ${ivy.var.adobe-sign-connector.clientSecret}
-      AUTH.useAppPermissions: ${ivy.var.adobe-sign-connector.useAppPermissions}
-      AUTH.useUserPassFlow: ${ivy.var.adobe-sign-connector.useUserPassFlow.enabled}
-      PATH.host: ${ivy.var.adobe-sign-connector.host}
-      AUTH.integrationKey: ${ivy.var.adobe-sign-connector.integrationKey}
+      AUTH.clientId: ${ivy.var.adobe-acrobat-sign-connector.clientId}
+      AUTH.clientSecret: ${ivy.var.adobe-acrobat-sign-connector.clientSecret}
+      AUTH.useAppPermissions: ${ivy.var.adobe-acrobat-sign-connector.useAppPermissions}
+      AUTH.useUserPassFlow: ${ivy.var.adobe-acrobat-sign-connector.useUserPassFlow.enabled}
+      PATH.host: ${ivy.var.adobe-acrobat-sign-connector.host}
+      AUTH.integrationKey: ${ivy.var.adobe-acrobat-sign-connector.integrationKey}
     OpenAPI:
       SpecUrl: file:///C:/tmp/ricoh/adobe/transientDocumentsV2.json
       Namespace: api.rest.v6.client

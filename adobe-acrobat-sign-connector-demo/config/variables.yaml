@@ -6,7 +6,7 @@
 # '<project>/Config/_<environment>/variables.yaml
 #
 Variables:
-  adobe-sign-connector:
+  adobe-acrobat-sign-connector:
     host: api.eu2.adobesign.com
     returnPage: /designer/page/adobe-acrobat-sign-connector$1/signatureReturn.jsp
     baseUri:  https://api.eu2.adobesign.com/oauth/v2

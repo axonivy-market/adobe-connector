@@ -187,7 +187,7 @@ public class AdobeSignService {
 		agreement.setEmailOption(createAllDisabledSendOptions());
 
 		String baseUrl = getRequestBaseUrl();
-		String fullUrl = baseUrl + Ivy.var().get("adobe-sign-connector.returnPage");
+		String fullUrl = baseUrl + Ivy.var().get("adobe-acrobat-sign-connector.returnPage");
 		agreement.postSignOption(new AgreementsPostSignOption().redirectUrl(fullUrl));
 
 		if(Objects.nonNull(formFieldGenerators)) {
@@ -267,7 +267,7 @@ public class AdobeSignService {
 		agreement.setEmailOption(createAllDisabledSendOptions());
 
 		String baseUrl = getRequestBaseUrl();
-		String fullUrl = baseUrl + Ivy.var().get("adobe-sign-connector.returnPage");
+		String fullUrl = baseUrl + Ivy.var().get("adobe-acrobat-sign-connector.returnPage");
 		agreement.postSignOption(new AgreementsPostSignOption().redirectUrl(fullUrl));
 
 		return agreement;
