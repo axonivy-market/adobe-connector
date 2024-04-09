@@ -1,5 +1,5 @@
 DemoData #class
-com.axonivy.connector.adobe.connector.demo #namespace
+com.axonivy.connector.adobe.acrobat.sign.connector.demo #namespace
 file java.io.File #field
 fileId String #field
 agreementId String #field

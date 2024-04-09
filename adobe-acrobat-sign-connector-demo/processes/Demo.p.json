@@ -11,7 +11,7 @@
       "config" : {
         "callSignature" : "demo",
         "outLink" : "demo.ivp",
-        "startName" : "<%=ivy.cms.co(\"/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/demo/Demo\")%>"
+        "startName" : "<%=ivy.cms.co(\"/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/demo/Demo/Demo\")%>"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 592 }
