@@ -3,22 +3,25 @@ Dialogs:
     axonivy:
       connector:
         adobe:
-          connector:
-            AdminSetup:
-              General: General
-              Header: Adobe Sign Admin Setup
-              IntegrationKey: Integration key
-              IntegrationKeyInfo: Setting the integrationKey will disable OAuth. If you wanna use OAuth then fill the OAuth
-                section and leave the integrationKey empty.
-              OAuth: OAuth
-              RedirectURI: Redirect URI
-              RequestToken: Save and Request new Token
-              Title: AdminSetup
+          acrobat:
+            sign:
+              connector:
+                AdminSetup:
+                  General: General
+                  Header: Adobe Sign Admin Setup
+                  IntegrationKey: Integration key
+                  IntegrationKeyInfo: Setting the integrationKey will disable OAuth. If you wanna use OAuth then fill the OAuth section and leave the integrationKey empty.
+                  OAuth: OAuth
+                  RedirectURI: Redirect URI
+                  RequestToken: Save and Request new Token
+                  Title: AdminSetup
 Process:
   com:
     axonivy:
       connector:
         adobe:
-          connector:
-            AdminSetup:
-              name: Adobe Sign Connector Admin Setup
+          acrobat:
+            sign:
+              connector:
+                AdminSetup:
+                  name: Adobe Sign Connector Admin Setup

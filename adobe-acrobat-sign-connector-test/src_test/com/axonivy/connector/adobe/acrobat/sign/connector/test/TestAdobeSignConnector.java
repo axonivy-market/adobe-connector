@@ -1,4 +1,4 @@
-package com.axonivy.connector.adobe.connector.test;
+package com.axonivy.connector.adobe.acrobat.sign.connector.test;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;

@@ -1,4 +1,4 @@
-package com.axonivy.connector.adobe.connector.test;
+package com.axonivy.connector.adobe.acrobat.sign.connector.test;
 
 import java.io.IOException;
 import java.io.InputStream;

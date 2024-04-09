@@ -1,4 +1,4 @@
-package com.axonivy.connector.adobe.connector.test;
+package com.axonivy.connector.adobe.acrobat.sign.connector.test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connector.adobe.connector.AgreementsData;
-import com.axonivy.connector.adobe.connector.rest.DownloadResult;
-import com.axonivy.connector.adobe.connector.service.AdobeSignService;
+import com.axonivy.connector.adobe.acrobat.sign.connector.rest.DownloadResult;
+import com.axonivy.connector.adobe.acrobat.sign.connector.service.AdobeSignService;
+import com.axonivy.connector.adobe.acrobat.sign.connector.AgreementsData;
 
 import api.rest.v6.client.AgreementCreationInfo;
 import api.rest.v6.client.AgreementCreationInfo.SignatureTypeEnum;

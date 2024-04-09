@@ -3,7 +3,7 @@
   "id" : "1886B1A625EA901A",
   "kind" : "HTML_DIALOG",
   "config" : {
-    "data" : "com.axonivy.connector.adobe.connector.demo.Demo.DemoData"
+    "data" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo.Demo.DemoData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -99,7 +99,7 @@
             { "name" : "agreement", "type" : "api.rest.v6.client.AgreementCreationInfo" }
           ],
           "map" : {
-            "param.agreement" : "com.axonivy.connector.adobe.connector.service.AdobeSignService.getInstance().buildSimpleAgreementWithFormFields(\"1SignerDemo\", in.documentIds, in.signer1, null)",
+            "param.agreement" : "com.axonivy.connector.adobe.acrobat.sign.connector.service.AdobeSignService.getInstance().buildSimpleAgreementWithFormFields(\"1SignerDemo\", in.documentIds, in.signer1, null)",
             "param.agreement.senderSigns" : "api.rest.v6.client.AgreementCreationInfo.SenderSignsEnum.NEVER",
             "param.agreement.signatureType" : "api.rest.v6.client.AgreementCreationInfo.SignatureTypeEnum.ESIGN"
           }
@@ -280,7 +280,7 @@
         },
         "output" : {
           "code" : [
-            "import com.axonivy.connector.adobe.connector.util.FileUtils;",
+            "import com.axonivy.connector.adobe.acrobat.sign.connector.util.FileUtils;",
             "in.documentContent = FileUtils.toStreamedContent(in.filename, result.download);"
           ]
         }
@@ -317,7 +317,7 @@
             { "name" : "agreement", "type" : "api.rest.v6.client.AgreementCreationInfo" }
           ],
           "map" : {
-            "param.agreement" : "com.axonivy.connector.adobe.connector.service.AdobeSignService.getInstance().buildSimpleAgreementFor2SignerGroups(\"2SignerDemo\", in.documentIds, [in.signer1], [in.signer2])"
+            "param.agreement" : "com.axonivy.connector.adobe.acrobat.sign.connector.service.AdobeSignService.getInstance().buildSimpleAgreementFor2SignerGroups(\"2SignerDemo\", in.documentIds, [in.signer1], [in.signer2])"
           }
         }
       },
@@ -460,7 +460,7 @@
         },
         "output" : {
           "code" : [
-            "import com.axonivy.connector.adobe.connector.util.FileUtils;",
+            "import com.axonivy.connector.adobe.acrobat.sign.connector.util.FileUtils;",
             "in.documentContent = FileUtils.toStreamedContent(in.filename, result.download);"
           ]
         }

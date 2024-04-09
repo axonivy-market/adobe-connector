@@ -2,7 +2,7 @@
   "format" : "10.0.0",
   "id" : "18822E284E99FC6E",
   "config" : {
-    "data" : "com.axonivy.connector.adobe.connector.demo.DemoData"
+    "data" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo.DemoData"
   },
   "elements" : [ {
       "id" : "f31",
@@ -11,7 +11,7 @@
       "config" : {
         "callSignature" : "demo",
         "outLink" : "demo.ivp",
-        "startName" : "<%=ivy.cms.co(\"/Dialogs/com/axonivy/connector/adobe/connector/demo/Demo/Demo\")%>"
+        "startName" : "<%=ivy.cms.co(\"/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/demo/Demo\")%>"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 592 }
@@ -22,7 +22,7 @@
       "type" : "DialogCall",
       "name" : "Demo",
       "config" : {
-        "dialogId" : "com.axonivy.connector.adobe.connector.demo.Demo",
+        "dialogId" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo.Demo",
         "startMethod" : "start()"
       },
       "visual" : {
