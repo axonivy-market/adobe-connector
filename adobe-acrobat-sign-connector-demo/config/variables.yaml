@@ -8,7 +8,7 @@
 Variables:
   adobe-sign-connector:
     host: api.eu2.adobesign.com
-    returnPage: /designer/page/adobe-connector$1/signatureReturn.jsp
+    returnPage: /designer/page/adobe-acrobat-sign-connector$1/signatureReturn.jsp
     baseUri:  https://api.eu2.adobesign.com/oauth/v2
     authenticationUri: https://secure.eu2.adobesign.com/public/oauth/v2
     clientId: ''

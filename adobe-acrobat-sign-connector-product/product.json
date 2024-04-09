@@ -6,8 +6,8 @@
       "data": {
         "projects": [
           {
-            "groupId": "com.axonivy.connector.adobe",
-            "artifactId": "adobe-connector",
+            "groupId": "com.axonivy.connector.adobe.acrobat.sign",
+            "artifactId": "adobe-acrobat-sign-connector",
             "version": "${version}",
             "type": "iar"
           }
@@ -29,7 +29,7 @@
         "dependencies": [
           {
             "groupId": "com.axonivy.connector.adobe",
-            "artifactId": "adobe-connector",
+            "artifactId": "adobe-acrobat-sign-connector",
             "version": "${version}",
             "type": "iar"
           }
