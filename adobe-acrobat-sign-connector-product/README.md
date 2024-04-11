@@ -7,25 +7,6 @@ The Adobe Acrobat Sign Connector is a project that simplifies the authentication
 
 An Adobe Sign account needs to be created to setup and use the connector.
 
-## Adobe Sign account creation
-
-  1. Create a **AdobeSign** Company **Account** OR for Developer Account creation use [Create Developer Account, APIs for custom applications | Acrobat Sign](https://www.adobe.com/sign/developer-form.html) and follow the steps:
-
- 	 a. Fill form with personal and business data + continue
- 	 ![fill-account-info](images/createAccountFillInfo.png)
-
- 	 b. Provide a password + continue
- 	 ![fill-password](images/createAccountPassword.png)
-
- 	 c. Provide date of birth + continue
- 	 ![fill-birth-date](images/createAccountBirthDate.png)
-
- 	 d. You will receive a verification code. Insert the code. Will automatically continue
- 	 ![verification-code](images/createAccountVerificationCode.png)
-
- 	 e. Developer account is created
- 	 ![account-finished](images/createAccountFinished.png)
-
 ## Demo
 
 The demo project can be used to test the authentication and signing and the demo implementation can be used as inspiration for development.
@@ -51,6 +32,26 @@ The demo project can be used to test the authentication and signing and the demo
 
 
 ## Setup
+
+### Adobe Sign account creation
+
+  1. Create a **AdobeSign** Company **Account** OR for Developer Account creation use [Create Developer Account, APIs for custom applications | Acrobat Sign](https://www.adobe.com/sign/developer-form.html) and follow the steps:
+
+ 	 a. Fill form with personal and business data + continue
+ 	 ![fill-account-info](images/createAccountFillInfo.png)
+
+ 	 b. Provide a password + continue
+ 	 ![fill-password](images/createAccountPassword.png)
+
+ 	 c. Provide date of birth + continue
+ 	 ![fill-birth-date](images/createAccountBirthDate.png)
+
+ 	 d. You will receive a verification code. Insert the code. Will automatically continue
+ 	 ![verification-code](images/createAccountVerificationCode.png)
+
+ 	 e. Developer account is created
+ 	 ![account-finished](images/createAccountFinished.png)
+
 
 Adobe Sign provides 2 options for authentication. (See Setup section)
 
