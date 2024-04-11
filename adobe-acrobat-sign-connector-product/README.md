@@ -5,7 +5,6 @@ The Adobe Acrobat Sign Connector is a project that simplifies the authentication
 
 [Adobe Sign](https://www.adobe.com/sign.html)
 
-An Adobe Sign account needs to be created to setup and use the connector.
 
 ## Demo
 
@@ -34,6 +33,8 @@ The demo project can be used to test the authentication and signing and the demo
 ## Setup
 
 ### Adobe Sign account creation
+
+	An Adobe Sign account needs to be created to setup and use the connector.
 
   1. Create a **AdobeSign** Company **Account** OR for Developer Account creation use [Create Developer Account, APIs for custom applications | Acrobat Sign](https://www.adobe.com/sign/developer-form.html) and follow the steps:
 
