@@ -2,7 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.axonivy.connector.adobe.acrobat.sign</groupId>
+  <groupId>com.axonivy.connector.adobe</groupId>
   <artifactId>adobe-acrobat-sign-connector-demo</artifactId>
   <version>10.0.16-SNAPSHOT</version>
   <packaging>iar</packaging>
@@ -11,7 +11,7 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>com.axonivy.connector.adobe.acrobat.sign</groupId>
+      <groupId>com.axonivy.connector.adobe</groupId>
       <artifactId>adobe-acrobat-sign-connector</artifactId>
       <version>${project.version}</version>
       <type>iar</type>
