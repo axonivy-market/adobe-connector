@@ -143,18 +143,7 @@
           }
         },
         "output" : {
-          "code" : [
-            "import api.rest.v6.client.SigningUrlResponseSigningUrls;",
-            "import api.rest.v6.client.SigningUrlResponseSigningUrlSetInfos;",
-            "",
-            "for(SigningUrlResponseSigningUrlSetInfos signingInfos : result.signingURIs) {",
-            "  for(SigningUrlResponseSigningUrls signingUrls : signingInfos.getSigningUrls()) {",
-            "    if(signingUrls.email.equals(in.signer1)) {",
-            "      in.signingURI = signingUrls.esignUrl;",
-            "    }",
-            "  }",
-            "}"
-          ]
+          "code" : "in.signingURI = com.axonivy.connector.adobe.acrobat.sign.connector.util.AdobeSignUtils.getSigningURIByEmail(in.signer1, result.signingURIs);"
         }
       },
       "visual" : {
@@ -359,18 +348,7 @@
           }
         },
         "output" : {
-          "code" : [
-            "import api.rest.v6.client.SigningUrlResponseSigningUrls;",
-            "import api.rest.v6.client.SigningUrlResponseSigningUrlSetInfos;",
-            "",
-            "for(SigningUrlResponseSigningUrlSetInfos signingInfos : result.signingURIs) {",
-            "  for(SigningUrlResponseSigningUrls signingUrls : signingInfos.getSigningUrls()) {",
-            "    if(signingUrls.email.equals(in.signer2)) {",
-            "      in.signingURI = signingUrls.esignUrl;",
-            "    }",
-            "  }",
-            "}"
-          ]
+          "code" : "in.signingURI = com.axonivy.connector.adobe.acrobat.sign.connector.util.AdobeSignUtils.getSigningURIByEmail(in.signer2, result.signingURIs);"
         }
       },
       "visual" : {
