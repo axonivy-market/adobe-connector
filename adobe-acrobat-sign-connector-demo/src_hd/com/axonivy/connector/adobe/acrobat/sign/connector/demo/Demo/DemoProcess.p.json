@@ -143,7 +143,7 @@
           }
         },
         "output" : {
-          "code" : "in.signingURI = com.axonivy.connector.adobe.acrobat.sign.connector.util.AdobeSignUtils.getSigningURIByEmail(in.signer1, result.signingURIs);"
+          "code" : "in.signingURI = com.axonivy.connector.adobe.acrobat.sign.connector.util.AdobeSignUtils.getESignUrlByEmail(in.signer1, result.signingURIs);"
         }
       },
       "visual" : {
@@ -348,7 +348,7 @@
           }
         },
         "output" : {
-          "code" : "in.signingURI = com.axonivy.connector.adobe.acrobat.sign.connector.util.AdobeSignUtils.getSigningURIByEmail(in.signer2, result.signingURIs);"
+          "code" : "in.signingURI = com.axonivy.connector.adobe.acrobat.sign.connector.util.AdobeSignUtils.getESignUrlByEmail(in.signer2, result.signingURIs);"
         }
       },
       "visual" : {
