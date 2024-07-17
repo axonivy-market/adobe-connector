@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.connector.adobe.acrobat.sign</groupId>
   <artifactId>adobe-acrobat-sign-connector-test</artifactId>
-  <version>10.0.24-SNAPSHOT</version>
+  <version>10.0.24</version>
   <packaging>iar</packaging>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.connector.adobe.acrobat.sign</groupId>
       <artifactId>adobe-acrobat-sign-connector</artifactId>
-      <version>10.0.24-SNAPSHOT</version>
+      <version>10.0.24</version>
       <type>iar</type>
     </dependency>
     <dependency>
