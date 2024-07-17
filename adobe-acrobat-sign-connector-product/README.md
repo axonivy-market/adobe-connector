@@ -4,10 +4,9 @@
 [Adobe Sign](https://www.adobe.com/sign.html) is a cloud-based electronic signature service that enables users to send, sign, track, and manage signature workflows digitally. With the Adobe Acrobat Sign Connector, you can integrate these functions conveniently and straightforwardly into your Axon Ivy processes.
 
 This connector:
-- provide Open Source Code so you can integrate Adobe Acrobat Sign easy and straightforward into Axon Ivy implementations
-- authenticates with OAuth2 or an integration key
-- lets you upload a pdf which can be signed by up to 2 different persons
-
+- Provides open source code so you can easily integrate Adobe Acrobat Sign into Axon Ivy deployments
+- Authenticates with OAuth2 or an integration key
+- Allows you to upload a PDF file that can be signed by up to 2 different people
 
 ## Demo
 
