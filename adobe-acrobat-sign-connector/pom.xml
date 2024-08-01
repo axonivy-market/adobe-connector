@@ -6,7 +6,7 @@
   <version>10.0.25-SNAPSHOT</version>
   <packaging>iar</packaging>
   <properties>
-    <build.plugin.version>10.0.6</build.plugin.version>
+    <build.plugin.version>10.0.16</build.plugin.version>
   </properties>
   <build>
     <plugins>
