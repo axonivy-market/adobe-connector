@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "18822D67B169266A",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "CallSubStart",
       "name" : "uploadDocument(file)",
       "config" : {
-        "callSignature" : "uploadDocument",
+        "signature" : "uploadDocument",
         "input" : {
           "params" : [
             { "name" : "file", "type" : "java.io.File", "desc" : "file to upload" }
@@ -33,7 +33,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -45,23 +47,31 @@
       "type" : "RestClientCall",
       "name" : "Upload Transient Document",
       "config" : {
-        "bodyForm" : {
-          "File-Name" : "",
-          "Mime-Type" : "",
-          "File" : "in.file"
-        },
-        "path" : "/transientDocuments",
-        "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.id" : "result.transientDocumentId"
+        "target" : {
+          "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
+          "path" : "/transientDocuments"
         },
-        "bodyObjectType" : "api.rest.v6.client.TransientDocumentsBody",
-        "resultType" : "api.rest.v6.client.TransientDocumentResponse",
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data"
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "File-Name" : [ "" ],
+            "Mime-Type" : [ "" ],
+            "File" : [ "in.file" ]
+          },
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentsBody"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentResponse",
+            "map" : {
+              "out.id" : "result.transientDocumentId"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 232, "y" : 64 }
@@ -80,15 +90,19 @@
           "visual" : {
             "at" : { "x" : 264, "y" : 106 }
           },
-          "connect" : { "id" : "f10", "to" : "f1" }
+          "connect" : [
+            { "id" : "f10", "to" : "f1" }
+          ]
         } ],
-      "connect" : { "id" : "f4", "to" : "f1" }
+      "connect" : [
+        { "id" : "f4", "to" : "f1" }
+      ]
     }, {
       "id" : "f2",
       "type" : "CallSubStart",
       "name" : "uploadDocument(UploadWrapper)",
       "config" : {
-        "callSignature" : "uploadDocument",
+        "signature" : "uploadDocument",
         "input" : {
           "params" : [
             { "name" : "upload", "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.UploadWrapper", "desc" : "file to upload" }
@@ -112,7 +126,9 @@
         "at" : { "x" : 96, "y" : 184 },
         "labelOffset" : { "x" : 17, "y" : 49 }
       },
-      "connect" : { "id" : "f13", "to" : "f5" }
+      "connect" : [
+        { "id" : "f13", "to" : "f5" }
+      ]
     }, {
       "id" : "f3",
       "type" : "CallSubEnd",
@@ -124,17 +140,29 @@
       "type" : "RestClientCall",
       "name" : "Upload Document",
       "config" : {
-        "bodyForm" : {
-          "File-Name" : "",
-          "Mime-Type" : "",
-          "File" : "in.file"
-        },
-        "path" : "/transientDocuments",
-        "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "JAX_RS",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "target" : {
+          "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
+          "path" : "/transientDocuments"
+        },
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "File-Name" : [ "" ],
+            "Mime-Type" : [ "" ],
+            "File" : [ "in.file" ]
+          },
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentsBody"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentResponse"
+          }
+        },
+        "code" : [
           "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.UploadResult;",
           "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.ClientService;",
           "UploadResult result = ClientService.upload(client, in.upload.filename, in.upload.bytes);",
@@ -144,11 +172,7 @@
           "} else {",
           "  in.error = result.#error;",
           "}"
-        ],
-        "bodyObjectType" : "api.rest.v6.client.TransientDocumentsBody",
-        "resultType" : "api.rest.v6.client.TransientDocumentResponse",
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data"
+        ]
       },
       "visual" : {
         "at" : { "x" : 232, "y" : 184 }
@@ -167,15 +191,19 @@
           "visual" : {
             "at" : { "x" : 264, "y" : 226 }
           },
-          "connect" : { "id" : "f12", "to" : "f3" }
+          "connect" : [
+            { "id" : "f12", "to" : "f3" }
+          ]
         } ],
-      "connect" : { "id" : "f11", "to" : "f3" }
+      "connect" : [
+        { "id" : "f11", "to" : "f3" }
+      ]
     }, {
       "id" : "f14",
       "type" : "CallSubStart",
       "name" : "uploadDocuments(List<File>)",
       "config" : {
-        "callSignature" : "uploadDocuments",
+        "signature" : "uploadDocuments",
         "input" : {
           "params" : [
             { "name" : "files", "type" : "java.util.List<java.io.File>", "desc" : "files to upload" }
@@ -199,7 +227,9 @@
         "at" : { "x" : 96, "y" : 360 },
         "labelOffset" : { "x" : 17, "y" : 49 }
       },
-      "connect" : { "id" : "f22", "to" : "f21" }
+      "connect" : [
+        { "id" : "f22", "to" : "f21" }
+      ]
     }, {
       "id" : "f15",
       "type" : "CallSubEnd",
@@ -211,23 +241,31 @@
       "type" : "RestClientCall",
       "name" : "Upload Transient Document",
       "config" : {
-        "bodyForm" : {
-          "File-Name" : "",
-          "Mime-Type" : "",
-          "File" : "in.file"
-        },
-        "path" : "/transientDocuments",
-        "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.id" : "result.transientDocumentId"
+        "target" : {
+          "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
+          "path" : "/transientDocuments"
         },
-        "bodyObjectType" : "api.rest.v6.client.TransientDocumentsBody",
-        "resultType" : "api.rest.v6.client.TransientDocumentResponse",
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data"
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "File-Name" : [ "" ],
+            "Mime-Type" : [ "" ],
+            "File" : [ "in.file" ]
+          },
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentsBody"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentResponse",
+            "map" : {
+              "out.id" : "result.transientDocumentId"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 384, "y" : 360 }
@@ -246,9 +284,13 @@
           "visual" : {
             "at" : { "x" : 416, "y" : 402 }
           },
-          "connect" : { "id" : "f20", "to" : "f15", "via" : [ { "x" : 776, "y" : 400 } ] }
+          "connect" : [
+            { "id" : "f20", "to" : "f15", "via" : [ { "x" : 776, "y" : 400 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f27", "to" : "f25" }
+      "connect" : [
+        { "id" : "f27", "to" : "f25" }
+      ]
     }, {
       "id" : "f21",
       "type" : "Script",
@@ -265,11 +307,18 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 360 }
       },
-      "connect" : { "id" : "f18", "to" : "f16" }
+      "connect" : [
+        { "id" : "f18", "to" : "f16" }
+      ]
     }, {
       "id" : "f23",
       "type" : "Alternative",
       "name" : "files size > 0",
+      "config" : {
+        "conditions" : {
+          "f26" : "in.files.size() > 0"
+        }
+      },
       "visual" : {
         "at" : { "x" : 672, "y" : 360 },
         "labelOffset" : { "x" : 14, "y" : 34 }
@@ -277,9 +326,8 @@
       "connect" : [
         { "id" : "f26", "to" : "f21", "via" : [ { "x" : 672, "y" : 304 }, { "x" : 224, "y" : 304 } ], "label" : {
             "name" : "yes",
-            "segment" : 0.5,
             "offset" : { "x" : -7, "y" : -6 }
-          }, "condition" : "in.files.size() > 0" },
+          } },
         { "id" : "f19", "to" : "f15", "label" : {
             "name" : "no",
             "offset" : { "x" : 5, "y" : -10 }
@@ -297,13 +345,15 @@
       "visual" : {
         "at" : { "x" : 544, "y" : 360 }
       },
-      "connect" : { "id" : "f24", "to" : "f23" }
+      "connect" : [
+        { "id" : "f24", "to" : "f23" }
+      ]
     }, {
       "id" : "f28",
       "type" : "CallSubStart",
       "name" : "uploadDocuments(List<UploadWrapper>)",
       "config" : {
-        "callSignature" : "uploadDocuments",
+        "signature" : "uploadDocuments",
         "input" : {
           "params" : [
             { "name" : "uploadWrappers", "type" : "java.util.List<com.axonivy.connector.adobe.acrobat.sign.connector.rest.UploadWrapper>", "desc" : "file to upload" }
@@ -327,7 +377,9 @@
         "at" : { "x" : 96, "y" : 512 },
         "labelOffset" : { "x" : 1, "y" : 57 }
       },
-      "connect" : { "id" : "f39", "to" : "f32" }
+      "connect" : [
+        { "id" : "f39", "to" : "f32" }
+      ]
     }, {
       "id" : "f29",
       "type" : "CallSubEnd",
@@ -350,11 +402,18 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 512 }
       },
-      "connect" : { "id" : "f30", "to" : "f42" }
+      "connect" : [
+        { "id" : "f30", "to" : "f42" }
+      ]
     }, {
       "id" : "f33",
       "type" : "Alternative",
       "name" : "files size > 0",
+      "config" : {
+        "conditions" : {
+          "f38" : "in.uploadWrappers.size() > 0"
+        }
+      },
       "visual" : {
         "at" : { "x" : 672, "y" : 512 },
         "labelOffset" : { "x" : 14, "y" : 34 }
@@ -362,9 +421,8 @@
       "connect" : [
         { "id" : "f38", "to" : "f32", "via" : [ { "x" : 672, "y" : 456 }, { "x" : 224, "y" : 456 } ], "label" : {
             "name" : "yes",
-            "segment" : 0.5,
             "offset" : { "x" : -7, "y" : -6 }
-          }, "condition" : "in.uploadWrappers.size() > 0" },
+          } },
         { "id" : "f36", "to" : "f29", "label" : {
             "name" : "no",
             "offset" : { "x" : 5, "y" : -10 }
@@ -382,23 +440,37 @@
       "visual" : {
         "at" : { "x" : 544, "y" : 512 }
       },
-      "connect" : { "id" : "f41", "to" : "f33" }
+      "connect" : [
+        { "id" : "f41", "to" : "f33" }
+      ]
     }, {
       "id" : "f42",
       "type" : "RestClientCall",
       "name" : "Upload Document",
       "config" : {
-        "bodyForm" : {
-          "File-Name" : "",
-          "Mime-Type" : "",
-          "File" : "in.file"
-        },
-        "path" : "/transientDocuments",
-        "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "JAX_RS",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "target" : {
+          "clientId" : "6a243983-5f6d-4278-89ec-aab09fea161c",
+          "path" : "/transientDocuments"
+        },
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "File-Name" : [ "" ],
+            "Mime-Type" : [ "" ],
+            "File" : [ "in.file" ]
+          },
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentsBody"
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.TransientDocumentResponse"
+          }
+        },
+        "code" : [
           "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.UploadResult;",
           "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.ClientService;",
           "UploadResult result = ClientService.upload(client, in.upload.filename, in.upload.bytes);",
@@ -408,11 +480,7 @@
           "} else {",
           "  in.error = result.#error;",
           "}"
-        ],
-        "bodyObjectType" : "api.rest.v6.client.TransientDocumentsBody",
-        "resultType" : "api.rest.v6.client.TransientDocumentResponse",
-        "bodyInputType" : "FORM",
-        "bodyMediaType" : "multipart/form-data"
+        ]
       },
       "visual" : {
         "at" : { "x" : 384, "y" : 512 }
@@ -431,8 +499,12 @@
           "visual" : {
             "at" : { "x" : 416, "y" : 552 }
           },
-          "connect" : { "id" : "f37", "to" : "f29", "via" : [ { "x" : 776, "y" : 552 } ] }
+          "connect" : [
+            { "id" : "f37", "to" : "f29", "via" : [ { "x" : 776, "y" : 552 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f31", "to" : "f34" }
+      "connect" : [
+        { "id" : "f31", "to" : "f34" }
+      ]
     } ]
 }

@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "18A83631DA63DA93",
   "config" : {
     "data" : "com.axonivy.connector.adobe.acrobat.sign.connector.AuthSetupData"
@@ -9,16 +9,21 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "responsible" : "ADOBE_ESIGN_ADMIN",
-        "outLink" : "start.ivp",
-        "wfuser" : "1",
-        "startName" : "<%=ivy.cms.co(\"/Process/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/name\")%>"
+        "signature" : "start",
+        "request" : {
+          "name" : "<%=ivy.cms.co(\"/Process/com/axonivy/connector/adobe/acrobat/sign/connector/AdminSetup/name\")%>"
+        },
+        "permission" : {
+          "anonymous" : false,
+          "role" : "ADOBE_ESIGN_ADMIN"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -30,36 +35,41 @@
       "type" : "DialogCall",
       "name" : "AuthSetup",
       "config" : {
-        "dialogId" : "com.axonivy.connector.adobe.acrobat.sign.connector.AdminSetup",
-        "startMethod" : "start()"
+        "dialog" : "com.axonivy.connector.adobe.acrobat.sign.connector.AdminSetup:start()"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "RequestStart",
       "name" : "oauthResume.ivp",
       "config" : {
-        "callSignature" : "oauthResume",
-        "responsible" : "ADOBE_ESIGN_ADMIN",
-        "outLink" : "oauthResume.ivp",
-        "showInStartList" : false,
+        "signature" : "oauthResume",
         "input" : {
           "params" : [
-            { "name" : "code", "type" : "String" }
+            { "name" : "code", "type" : "String", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "import com.axonivy.connector.adobe.acrobat.sign.connector.service.AdminSetupService;",
             "AdminSetupService.getNewAccessToken(param.code);"
           ]
         },
-        "wfuser" : "1"
+        "permission" : {
+          "anonymous" : false,
+          "role" : "ADOBE_ESIGN_ADMIN"
+        },
+        "triggerable" : true
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 200 }
       },
-      "connect" : { "id" : "f9", "to" : "f3", "via" : [ { "x" : 224, "y" : 200 } ] }
+      "connect" : [
+        { "id" : "f9", "to" : "f3", "via" : [ { "x" : 224, "y" : 200 } ] }
+      ]
     } ]
 }

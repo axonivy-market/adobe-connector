@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "18822E284E99FC6E",
   "config" : {
     "data" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo.DemoData"
@@ -9,26 +9,30 @@
       "type" : "RequestStart",
       "name" : "demo.ivp",
       "config" : {
-        "callSignature" : "demo",
-        "outLink" : "demo.ivp",
-        "startName" : "<%=ivy.cms.co(\"/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/demo/Demo/Demo\")%>"
+        "signature" : "demo",
+        "request" : {
+          "name" : "<%=ivy.cms.co(\"/Dialogs/com/axonivy/connector/adobe/acrobat/sign/connector/demo/Demo/Demo\")%>"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 592 }
       },
-      "connect" : { "id" : "f33", "to" : "f32" }
+      "connect" : [
+        { "id" : "f33", "to" : "f32" }
+      ]
     }, {
       "id" : "f32",
       "type" : "DialogCall",
       "name" : "Demo",
       "config" : {
-        "dialogId" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo.Demo",
-        "startMethod" : "start()"
+        "dialog" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo.Demo:start()"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 592 }
       },
-      "connect" : { "id" : "f35", "to" : "f34" }
+      "connect" : [
+        { "id" : "f35", "to" : "f34" }
+      ]
     }, {
       "id" : "f34",
       "type" : "TaskEnd",

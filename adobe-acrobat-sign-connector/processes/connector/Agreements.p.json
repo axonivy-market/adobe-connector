@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "18822C586F9CB9FB",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "CallSubStart",
       "name" : "createAgreement(AgreementCreationInfo)",
       "config" : {
-        "callSignature" : "createAgreement",
+        "signature" : "createAgreement",
         "input" : {
           "params" : [
             { "name" : "agreement", "type" : "api.rest.v6.client.AgreementCreationInfo", "desc" : "agreement to create" }
@@ -28,13 +28,17 @@
             "result.agreementInfo" : "in.#agreementCreationResponse",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -46,20 +50,27 @@
       "type" : "RestClientCall",
       "name" : "post agreement",
       "config" : {
-        "path" : "/agreements",
-        "bodyObjectMapping" : {
-          "param" : "in.agreementCreation"
-        },
-        "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.agreementCreationResponse" : "result"
+        "target" : {
+          "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
+          "path" : "/agreements"
         },
-        "bodyObjectType" : "api.rest.v6.client.AgreementCreationInfo",
-        "resultType" : "api.rest.v6.client.AgreementCreationResponse",
-        "bodyInputType" : "ENTITY"
+        "body" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.AgreementCreationInfo",
+            "map" : {
+              "param" : "in.agreementCreation"
+            }
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.AgreementCreationResponse",
+            "map" : {
+              "out.agreementCreationResponse" : "result"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 64 }
@@ -78,15 +89,19 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 106 }
           },
-          "connect" : { "id" : "f6", "to" : "f1", "via" : [ { "x" : 480, "y" : 106 } ] }
+          "connect" : [
+            { "id" : "f6", "to" : "f1", "via" : [ { "x" : 480, "y" : 106 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f7",
       "type" : "CallSubStart",
       "name" : "getAgreementById(String)",
       "config" : {
-        "callSignature" : "getAgreementById",
+        "signature" : "getAgreementById",
         "input" : {
           "params" : [
             { "name" : "agreementId", "type" : "String", "desc" : "id of agreement" }
@@ -98,35 +113,43 @@
         "result" : {
           "params" : [
             { "name" : "agreementInfo", "type" : "api.rest.v6.client.AgreementInfo", "desc" : "detailed information of agreeement" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.agreementInfo" : "in.#agreementInfo",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 192 }
       },
-      "connect" : { "id" : "f9", "to" : "f8" }
+      "connect" : [
+        { "id" : "f9", "to" : "f8" }
+      ]
     }, {
       "id" : "f8",
       "type" : "RestClientCall",
       "name" : "get agreement by id",
       "config" : {
-        "path" : "/agreements/{agreementId}",
-        "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.agreementInfo" : "result"
+        "target" : {
+          "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
+          "path" : "/agreements/{agreementId}",
+          "templateParams" : {
+            "agreementId" : "in.agreementId"
+          }
         },
-        "templateParams" : {
-          "agreementId" : "in.agreementId"
-        },
-        "resultType" : "api.rest.v6.client.AgreementInfo"
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.AgreementInfo",
+            "map" : {
+              "out.agreementInfo" : "result"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 192 }
@@ -137,9 +160,13 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 232 }
           },
-          "connect" : { "id" : "f13", "to" : "f10", "via" : [ { "x" : 472, "y" : 232 } ] }
+          "connect" : [
+            { "id" : "f13", "to" : "f10", "via" : [ { "x" : 472, "y" : 232 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f11", "to" : "f10" }
+      "connect" : [
+        { "id" : "f11", "to" : "f10" }
+      ]
     }, {
       "id" : "f10",
       "type" : "CallSubEnd",
@@ -151,7 +178,7 @@
       "type" : "CallSubStart",
       "name" : "getSigningURLs(String,String)",
       "config" : {
-        "callSignature" : "getSigningURLs",
+        "signature" : "getSigningURLs",
         "input" : {
           "params" : [
             { "name" : "agreementId", "type" : "String", "desc" : "id of agreement" },
@@ -165,38 +192,46 @@
         "result" : {
           "params" : [
             { "name" : "signingURIs", "type" : "java.util.List<api.rest.v6.client.SigningUrlResponseSigningUrlSetInfos>", "desc" : "detailed information of agreeement" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.signingURIs" : "in.#signingUrls",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 312 }
       },
-      "connect" : { "id" : "f20", "to" : "f15" }
+      "connect" : [
+        { "id" : "f20", "to" : "f15" }
+      ]
     }, {
       "id" : "f15",
       "type" : "RestClientCall",
       "name" : "get signing URLs for agreement",
       "config" : {
-        "path" : "/agreements/{agreementId}/signingUrls",
-        "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "queryParams" : {
-          "frameParent" : "in.frameParent"
+        "target" : {
+          "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
+          "path" : "/agreements/{agreementId}/signingUrls",
+          "templateParams" : {
+            "agreementId" : "in.agreementId"
+          },
+          "queryParams" : {
+            "frameParent" : "in.frameParent"
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.signingUrls" : "result.signingUrlSetInfos"
-        },
-        "templateParams" : {
-          "agreementId" : "in.agreementId"
-        },
-        "resultType" : "api.rest.v6.client.SigningUrlResponse"
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.SigningUrlResponse",
+            "map" : {
+              "out.signingUrls" : "result.signingUrlSetInfos"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 312 }
@@ -215,9 +250,13 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 352 }
           },
-          "connect" : { "id" : "f19", "to" : "f17", "via" : [ { "x" : 472, "y" : 352 } ] }
+          "connect" : [
+            { "id" : "f19", "to" : "f17", "via" : [ { "x" : 472, "y" : 352 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f18", "to" : "f17" }
+      "connect" : [
+        { "id" : "f18", "to" : "f17" }
+      ]
     }, {
       "id" : "f17",
       "type" : "CallSubEnd",
@@ -229,7 +268,7 @@
       "type" : "CallSubStart",
       "name" : "getDocuments(String)",
       "config" : {
-        "callSignature" : "getDocuments",
+        "signature" : "getDocuments",
         "input" : {
           "params" : [
             { "name" : "agreementId", "type" : "String", "desc" : "id of agreement" }
@@ -241,41 +280,49 @@
         "result" : {
           "params" : [
             { "name" : "documents", "type" : "api.rest.v6.client.AgreementDocuments", "desc" : "detailed information of agreeement" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.documents" : "in.#documents",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 432 }
       },
-      "connect" : { "id" : "f25", "to" : "f22" }
+      "connect" : [
+        { "id" : "f25", "to" : "f22" }
+      ]
     }, {
       "id" : "f22",
       "type" : "RestClientCall",
       "name" : "get documents of agreement",
       "config" : {
-        "path" : "/agreements/{agreementId}/documents",
-        "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "queryParams" : {
-          "frameParent" : "",
-          "versionId" : "",
-          "participantEmail" : "",
-          "supportingDocumentContentFormat" : ""
+        "target" : {
+          "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
+          "path" : "/agreements/{agreementId}/documents",
+          "templateParams" : {
+            "agreementId" : "in.agreementId"
+          },
+          "queryParams" : {
+            "frameParent" : "",
+            "versionId" : "",
+            "participantEmail" : "",
+            "supportingDocumentContentFormat" : ""
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.documents" : "result"
-        },
-        "templateParams" : {
-          "agreementId" : "in.agreementId"
-        },
-        "resultType" : "api.rest.v6.client.AgreementDocuments"
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.AgreementDocuments",
+            "map" : {
+              "out.documents" : "result"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 432 }
@@ -286,9 +333,13 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 472 }
           },
-          "connect" : { "id" : "f27", "to" : "f24", "via" : [ { "x" : 472, "y" : 472 } ] }
+          "connect" : [
+            { "id" : "f27", "to" : "f24", "via" : [ { "x" : 472, "y" : 472 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f26", "to" : "f24" }
+      "connect" : [
+        { "id" : "f26", "to" : "f24" }
+      ]
     }, {
       "id" : "f24",
       "type" : "CallSubEnd",
@@ -300,7 +351,7 @@
       "type" : "CallSubStart",
       "name" : "dowloadDocument(String, String, String, Boolean)",
       "config" : {
-        "callSignature" : "dowloadDocument",
+        "signature" : "dowloadDocument",
         "input" : {
           "params" : [
             { "name" : "agreementId", "type" : "String", "desc" : "id of agreement" },
@@ -318,38 +369,42 @@
         "result" : {
           "params" : [
             { "name" : "download", "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.DownloadResult", "desc" : "DownloadResult" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.download" : "in.download",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 544 }
       },
-      "connect" : { "id" : "f33", "to" : "f29" }
+      "connect" : [
+        { "id" : "f33", "to" : "f29" }
+      ]
     }, {
       "id" : "f29",
       "type" : "RestClientCall",
       "name" : "get documents of agreement",
       "config" : {
-        "path" : "/agreements/{agreementId}/documents/{documentId}",
-        "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "JAX_RS",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "target" : {
+          "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
+          "path" : "/agreements/{agreementId}/documents/{documentId}",
+          "templateParams" : {
+            "agreementId" : "in.agreementId",
+            "documentId" : "in.documentId"
+          }
+        },
+        "code" : [
           "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.ClientService;",
           "",
           "in.download = ClientService.download(client, in.filename, in.asFileOption);"
-        ],
-        "templateParams" : {
-          "agreementId" : "in.agreementId",
-          "documentId" : "in.documentId"
-        }
+        ]
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 544 }
@@ -360,9 +415,13 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 584 }
           },
-          "connect" : { "id" : "f34", "to" : "f31", "via" : [ { "x" : 472, "y" : 584 } ] }
+          "connect" : [
+            { "id" : "f34", "to" : "f31", "via" : [ { "x" : 472, "y" : 584 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f32", "to" : "f31" }
+      "connect" : [
+        { "id" : "f32", "to" : "f31" }
+      ]
     }, {
       "id" : "f31",
       "type" : "CallSubEnd",
@@ -374,7 +433,7 @@
       "type" : "CallSubStart",
       "name" : "addFormFields(String, FormFieldPutInfo)",
       "config" : {
-        "callSignature" : "addFormFields",
+        "signature" : "addFormFields",
         "input" : {
           "params" : [
             { "name" : "agreementId", "type" : "String", "desc" : "id of the agreement" },
@@ -392,13 +451,17 @@
           "map" : {
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 80, "y" : 648 }
       },
-      "connect" : { "id" : "f40", "to" : "f37" }
+      "connect" : [
+        { "id" : "f40", "to" : "f37" }
+      ]
     }, {
       "id" : "f36",
       "type" : "CallSubEnd",
@@ -410,21 +473,28 @@
       "type" : "RestClientCall",
       "name" : "create formfields",
       "config" : {
-        "path" : "/agreements/{agreementId}/formFields",
-        "bodyObjectMapping" : {
-          "param" : "in.formFieldPutInfo"
-        },
-        "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "PUT",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "api.rest.v6.client.FormFieldPutInfo",
-        "templateParams" : {
-          "agreementId" : "in.agreementId"
+        "target" : {
+          "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
+          "path" : "/agreements/{agreementId}/formFields",
+          "templateParams" : {
+            "agreementId" : "in.agreementId"
+          }
         },
-        "resultType" : "api.rest.v6.client.AgreementFormFields",
-        "bodyInputType" : "ENTITY",
-        "bodyMediaType" : "*/*"
+        "body" : {
+          "mediaType" : "*/*",
+          "entity" : {
+            "type" : "api.rest.v6.client.FormFieldPutInfo",
+            "map" : {
+              "param" : "in.formFieldPutInfo"
+            }
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.AgreementFormFields"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 272, "y" : 648 }
@@ -443,15 +513,19 @@
           "visual" : {
             "at" : { "x" : 304, "y" : 690 }
           },
-          "connect" : { "id" : "f41", "to" : "f36", "via" : [ { "x" : 472, "y" : 690 } ] }
+          "connect" : [
+            { "id" : "f41", "to" : "f36", "via" : [ { "x" : 472, "y" : 690 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f39", "to" : "f36" }
+      "connect" : [
+        { "id" : "f39", "to" : "f36" }
+      ]
     }, {
       "id" : "f42",
       "type" : "CallSubStart",
       "name" : "dowloadCombinedDocument(String, Boolean)",
       "config" : {
-        "callSignature" : "dowloadCombinedDocument",
+        "signature" : "dowloadCombinedDocument",
         "input" : {
           "params" : [
             { "name" : "agreementId", "type" : "String", "desc" : "id of agreement" },
@@ -467,48 +541,55 @@
         "result" : {
           "params" : [
             { "name" : "download", "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.DownloadResult", "desc" : "DownloadResult" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.download" : "in.download",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 80, "y" : 776 },
         "description" : "Downloads all documents combined to one pdf document"
       },
-      "connect" : { "id" : "f47", "to" : "f43" }
+      "connect" : [
+        { "id" : "f47", "to" : "f43" }
+      ]
     }, {
       "id" : "f43",
       "type" : "RestClientCall",
       "name" : "get combined documents of agreement",
       "config" : {
-        "path" : "/agreements/{agreementId}/combinedDocument",
-        "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "method" : "GET",
-        "queryParams" : {
-          "versionId" : "",
-          "participantId" : "",
-          "attachSupportingDocuments" : "",
-          "attachAuditReport" : ""
+        "target" : {
+          "clientId" : "8e96fab1-4701-47cb-ae35-d821bb12305b",
+          "path" : "/agreements/{agreementId}/combinedDocument",
+          "templateParams" : {
+            "agreementId" : "in.agreementId",
+            "documentId" : ""
+          },
+          "queryParams" : {
+            "versionId" : "",
+            "participantId" : "",
+            "attachSupportingDocuments" : "",
+            "attachAuditReport" : ""
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "clientCode" : [
+        "response" : {
+          "entity" : {
+            "code" : [
+              "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.ClientService;",
+              "in.download = ClientService.download(response, in.filename, in.asFileOption);"
+            ]
+          }
+        },
+        "code" : [
           "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.ClientService;",
           "",
           "in.download = ClientService.download(client, in.filename, in.asFileOption);"
-        ],
-        "templateParams" : {
-          "agreementId" : "in.agreementId",
-          "documentId" : ""
-        },
-        "responseCode" : [
-          "import com.axonivy.connector.adobe.acrobat.sign.connector.rest.ClientService;",
-          "in.download = ClientService.download(response, in.filename, in.asFileOption);"
         ]
       },
       "visual" : {
@@ -520,9 +601,13 @@
           "visual" : {
             "at" : { "x" : 304, "y" : 816 }
           },
-          "connect" : { "id" : "f48", "to" : "f45", "via" : [ { "x" : 464, "y" : 816 } ] }
+          "connect" : [
+            { "id" : "f48", "to" : "f45", "via" : [ { "x" : 464, "y" : 816 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f46", "to" : "f45" }
+      "connect" : [
+        { "id" : "f46", "to" : "f45" }
+      ]
     }, {
       "id" : "f45",
       "type" : "CallSubEnd",
