@@ -1,4 +1,3 @@
-
 # Adobe Acrobat Sign Connector
 
 [Adobe Sign](https://www.adobe.com/sign.html) is a cloud-based electronic signature service that enables users to send, sign, track, and manage signature workflows digitally. With the Adobe Acrobat Sign Connector, you can integrate these functions conveniently and straightforwardly into your Axon Ivy processes.
