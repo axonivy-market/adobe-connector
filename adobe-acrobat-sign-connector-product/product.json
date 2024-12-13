@@ -7,7 +7,7 @@
         "projects": [
           {
             "groupId": "com.axonivy.connector.adobe.acrobat.sign",
-            "artifactId": "adobe-acrobat-sign-connector",
+            "artifactId": "adobe-acrobat-sign-connector-demo",
             "version": "${version}",
             "type": "iar"
           }
