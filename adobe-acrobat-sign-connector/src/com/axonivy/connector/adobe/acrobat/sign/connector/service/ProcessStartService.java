@@ -31,7 +31,6 @@ public class ProcessStartService {
 	 */
 	public static String findRelativeUrlByProcessStartFriendlyRequestPath(String friendlyRequestPath) {
 		IWebStartable processStart = findProcessStartByUserFriendlyRequestPath(friendlyRequestPath);
-		Ivy.log().warn("String ne "+processStart.getLink().getRelative());
 		return processStart != null ? processStart.getLink().getRelative() : StringUtils.EMPTY;
 	}
 
