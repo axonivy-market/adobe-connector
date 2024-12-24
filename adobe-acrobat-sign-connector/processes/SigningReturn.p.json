@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "188B5516C4F69340",
   "config" : {
     "data" : "com.axonivy.connector.adobe.acrobat.sign.connector.SigningReturnData"
@@ -9,19 +9,22 @@
       "type" : "RequestStart",
       "name" : "signingReturn.ivp",
       "config" : {
-        "callSignature" : "signingReturn",
-        "outLink" : "signingReturn.ivp",
-        "showInStartList" : false
+        "signature" : "signingReturn",
+        "request" : {
+          "isVisibleOnStartList" : false
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEndPage",
       "config" : {
-        "template" : "signatureReturn.jsp"
+        "page" : "signatureReturn.jsp"
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 64 }

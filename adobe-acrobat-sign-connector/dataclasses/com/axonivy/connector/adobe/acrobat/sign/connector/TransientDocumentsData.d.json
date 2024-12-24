@@ -1,0 +1,28 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "TransientDocumentsData",
+  "namespace" : "com.axonivy.connector.adobe.acrobat.sign.connector",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "file",
+    "type" : "java.io.File"
+  }, {
+    "name" : "id",
+    "type" : "String"
+  }, {
+    "name" : "error",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+  }, {
+    "name" : "upload",
+    "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.UploadWrapper"
+  }, {
+    "name" : "files",
+    "type" : "java.util.List<java.io.File>"
+  }, {
+    "name" : "ids",
+    "type" : "java.util.List<String>"
+  }, {
+    "name" : "uploadWrappers",
+    "type" : "java.util.List<com.axonivy.connector.adobe.acrobat.sign.connector.rest.UploadWrapper>"
+  } ]
+}

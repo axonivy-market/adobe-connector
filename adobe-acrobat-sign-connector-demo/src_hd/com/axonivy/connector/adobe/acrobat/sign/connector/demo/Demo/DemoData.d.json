@@ -1,0 +1,59 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "DemoData",
+  "namespace" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo.Demo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "file",
+    "type" : "File",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "documentId",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "agreementId",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "signingURI",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "signer1",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "signer2",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "authoringURI",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "documents",
+    "type" : "api.rest.v6.client.AgreementDocuments",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "documentContent",
+    "type" : "org.primefaces.model.StreamedContent",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "download",
+    "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.DownloadResult",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "filename",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "documentIds",
+    "type" : "java.util.List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "files",
+    "type" : "java.util.List<java.io.File>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

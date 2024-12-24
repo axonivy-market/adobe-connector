@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "1886B1A625EA901A",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,13 +10,15 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "guid" : "1886B1A62614A9F5"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
@@ -33,7 +35,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 160 }
       },
-      "connect" : { "id" : "f5", "to" : "f4" }
+      "connect" : [
+        { "id" : "f5", "to" : "f4" }
+      ]
     }, {
       "id" : "f4",
       "type" : "HtmlDialogExit",
@@ -50,7 +54,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 248 }
       },
-      "connect" : { "id" : "f51", "to" : "f11" }
+      "connect" : [
+        { "id" : "f51", "to" : "f11" }
+      ]
     }, {
       "id" : "f7",
       "type" : "HtmlDialogEnd",
@@ -63,52 +69,50 @@
       "name" : "upload documents",
       "config" : {
         "processCall" : "connector/TransientDocuments:uploadDocuments(java.util.List<java.io.File>)",
+        "call" : {
+          "map" : {
+            "param.files" : "in.files"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.documentIds" : "result.ids"
-          }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "files", "type" : "java.util.List<java.io.File>" }
-          ],
-          "map" : {
-            "param.files" : "in.files"
           }
         }
       },
       "visual" : {
         "at" : { "x" : 384, "y" : 248 }
       },
-      "connect" : { "id" : "f14", "to" : "f13" }
+      "connect" : [
+        { "id" : "f14", "to" : "f13" }
+      ]
     }, {
       "id" : "f13",
       "type" : "SubProcessCall",
       "name" : "create agreement",
       "config" : {
         "processCall" : "connector/Agreements:createAgreement(api.rest.v6.client.AgreementCreationInfo)",
-        "output" : {
-          "map" : {
-            "out" : "in",
-            "out.agreementId" : "result.agreementInfo.id"
-          }
-        },
         "call" : {
-          "params" : [
-            { "name" : "agreement", "type" : "api.rest.v6.client.AgreementCreationInfo" }
-          ],
           "map" : {
             "param.agreement" : "com.axonivy.connector.adobe.acrobat.sign.connector.service.AdobeSignService.getInstance().buildSimpleAgreementWithFormFields(\"1SignerDemo\", in.documentIds, in.signer1, null)",
             "param.agreement.senderSigns" : "api.rest.v6.client.AgreementCreationInfo.SenderSignsEnum.NEVER",
             "param.agreement.signatureType" : "api.rest.v6.client.AgreementCreationInfo.SignatureTypeEnum.ESIGN"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.agreementId" : "result.agreementInfo.id"
           }
         }
       },
       "visual" : {
         "at" : { "x" : 552, "y" : 248 }
       },
-      "connect" : { "id" : "f39", "to" : "f38" }
+      "connect" : [
+        { "id" : "f39", "to" : "f38" }
+      ]
     }, {
       "id" : "f15",
       "type" : "HtmlDialogEventStart",
@@ -119,7 +123,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 504 }
       },
-      "connect" : { "id" : "f19", "to" : "f18" }
+      "connect" : [
+        { "id" : "f19", "to" : "f18" }
+      ]
     }, {
       "id" : "f16",
       "type" : "HtmlDialogEnd",
@@ -133,10 +139,6 @@
       "config" : {
         "processCall" : "connector/Agreements:getSigningURLs(String,String)",
         "call" : {
-          "params" : [
-            { "name" : "agreementId", "type" : "String" },
-            { "name" : "frameParent", "type" : "String" }
-          ],
           "map" : {
             "param.agreementId" : "in.agreementId",
             "param.frameParent" : "ivy.html.applicationHomeRef()"
@@ -149,7 +151,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 504 }
       },
-      "connect" : { "id" : "f17", "to" : "f16" }
+      "connect" : [
+        { "id" : "f17", "to" : "f16" }
+      ]
     }, {
       "id" : "f20",
       "type" : "HtmlDialogEventStart",
@@ -160,79 +164,79 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 344 }
       },
-      "connect" : { "id" : "f9", "to" : "f23" }
+      "connect" : [
+        { "id" : "f9", "to" : "f23" }
+      ]
     }, {
       "id" : "f23",
       "type" : "SubProcessCall",
       "name" : "upload document",
       "config" : {
         "processCall" : "connector/TransientDocuments:uploadDocuments(java.util.List<java.io.File>)",
+        "call" : {
+          "map" : {
+            "param.files" : "in.files"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.documentIds" : "result.ids"
-          }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "files", "type" : "java.util.List<java.io.File>" }
-          ],
-          "map" : {
-            "param.files" : "in.files"
           }
         }
       },
       "visual" : {
         "at" : { "x" : 384, "y" : 344 }
       },
-      "connect" : { "id" : "f48", "to" : "f47" }
+      "connect" : [
+        { "id" : "f48", "to" : "f47" }
+      ]
     }, {
       "id" : "f38",
       "type" : "SubProcessCall",
       "name" : "get documents",
       "config" : {
         "processCall" : "connector/Agreements:getDocuments(String)",
+        "call" : {
+          "map" : {
+            "param.agreementId" : "in.agreementId"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.documents" : "result.documents"
-          }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "agreementId", "type" : "String" }
-          ],
-          "map" : {
-            "param.agreementId" : "in.agreementId"
           }
         }
       },
       "visual" : {
         "at" : { "x" : 792, "y" : 248 }
       },
-      "connect" : { "id" : "f10", "to" : "f7" }
+      "connect" : [
+        { "id" : "f10", "to" : "f7" }
+      ]
     }, {
       "id" : "f40",
       "type" : "HtmlDialogMethodStart",
       "name" : "downloadDocument(String,String)",
       "config" : {
-        "callSignature" : "downloadDocument",
-        "result" : {
-          "params" : [
-            { "name" : "file", "type" : "org.primefaces.model.StreamedContent" }
-          ],
-          "map" : {
-            "result.file" : "in.documentContent"
-          }
-        },
+        "signature" : "downloadDocument",
         "input" : {
           "params" : [
-            { "name" : "documentId", "type" : "String" },
-            { "name" : "filename", "type" : "String" }
+            { "name" : "documentId", "type" : "String", "desc" : "" },
+            { "name" : "filename", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.documentId" : "param.documentId",
             "out.filename" : "param.filename"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "file", "type" : "org.primefaces.model.StreamedContent", "desc" : "" }
+          ],
+          "map" : {
+            "result.file" : "in.documentContent"
           }
         },
         "guid" : "188B93A5550422ED"
@@ -240,7 +244,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 592 }
       },
-      "connect" : { "id" : "f44", "to" : "f43" }
+      "connect" : [
+        { "id" : "f44", "to" : "f43" }
+      ]
     }, {
       "id" : "f41",
       "type" : "HtmlDialogEnd",
@@ -254,12 +260,6 @@
       "config" : {
         "processCall" : "connector/Agreements:dowloadDocument(String,String,String,Boolean)",
         "call" : {
-          "params" : [
-            { "name" : "agreementId", "type" : "String" },
-            { "name" : "documentId", "type" : "String" },
-            { "name" : "filename", "type" : "String" },
-            { "name" : "asFile", "type" : "Boolean" }
-          ],
           "map" : {
             "param.agreementId" : "in.agreementId",
             "param.documentId" : "in.documentId",
@@ -277,7 +277,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 592 }
       },
-      "connect" : { "id" : "f42", "to" : "f41" }
+      "connect" : [
+        { "id" : "f42", "to" : "f41" }
+      ]
     }, {
       "id" : "f45",
       "type" : "HtmlDialogEventStart",
@@ -288,32 +290,33 @@
       "visual" : {
         "at" : { "x" : 664, "y" : 144 }
       },
-      "connect" : { "id" : "f46", "to" : "f38" }
+      "connect" : [
+        { "id" : "f46", "to" : "f38" }
+      ]
     }, {
       "id" : "f47",
       "type" : "SubProcessCall",
       "name" : "create agreement",
       "config" : {
         "processCall" : "connector/Agreements:createAgreement(api.rest.v6.client.AgreementCreationInfo)",
+        "call" : {
+          "map" : {
+            "param.agreement" : "com.axonivy.connector.adobe.acrobat.sign.connector.service.AdobeSignService.getInstance().buildSimpleAgreementFor2SignerGroups(\"2SignerDemo\", in.documentIds, [in.signer1], [in.signer2])"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.agreementId" : "result.agreementInfo.id"
-          }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "agreement", "type" : "api.rest.v6.client.AgreementCreationInfo" }
-          ],
-          "map" : {
-            "param.agreement" : "com.axonivy.connector.adobe.acrobat.sign.connector.service.AdobeSignService.getInstance().buildSimpleAgreementFor2SignerGroups(\"2SignerDemo\", in.documentIds, [in.signer1], [in.signer2])"
           }
         }
       },
       "visual" : {
         "at" : { "x" : 552, "y" : 344 }
       },
-      "connect" : { "id" : "f33", "to" : "f38" }
+      "connect" : [
+        { "id" : "f33", "to" : "f38" }
+      ]
     }, {
       "id" : "f21",
       "type" : "HtmlDialogEventStart",
@@ -324,7 +327,9 @@
       "visual" : {
         "at" : { "x" : 424, "y" : 504 }
       },
-      "connect" : { "id" : "f26", "to" : "f25" }
+      "connect" : [
+        { "id" : "f26", "to" : "f25" }
+      ]
     }, {
       "id" : "f24",
       "type" : "HtmlDialogEnd",
@@ -338,10 +343,6 @@
       "config" : {
         "processCall" : "connector/Agreements:getSigningURLs(String,String)",
         "call" : {
-          "params" : [
-            { "name" : "agreementId", "type" : "String" },
-            { "name" : "frameParent", "type" : "String" }
-          ],
           "map" : {
             "param.agreementId" : "in.agreementId",
             "param.frameParent" : "ivy.html.applicationHomeRef()"
@@ -354,17 +355,20 @@
       "visual" : {
         "at" : { "x" : 552, "y" : 504 }
       },
-      "connect" : { "id" : "f29", "to" : "f24" }
+      "connect" : [
+        { "id" : "f29", "to" : "f24" }
+      ]
     }, {
       "id" : "f27",
       "type" : "HtmlDialogMethodStart",
       "name" : "handleFilesUpload(FilesUploadEvent)",
       "config" : {
-        "callSignature" : "handleFilesUpload",
+        "signature" : "handleFilesUpload",
         "input" : {
           "params" : [
-            { "name" : "event", "type" : "org.primefaces.event.FilesUploadEvent" }
+            { "name" : "event", "type" : "org.primefaces.event.FilesUploadEvent", "desc" : "" }
           ],
+          "map" : { },
           "code" : [
             "import org.primefaces.model.file.UploadedFile;",
             " ",
@@ -381,7 +385,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 776 }
       },
-      "connect" : { "id" : "f36", "to" : "f30" }
+      "connect" : [
+        { "id" : "f36", "to" : "f30" }
+      ]
     }, {
       "id" : "f30",
       "type" : "HtmlDialogEnd",
@@ -393,11 +399,12 @@
       "type" : "HtmlDialogMethodStart",
       "name" : "deleteFile(File)",
       "config" : {
-        "callSignature" : "deleteFile",
+        "signature" : "deleteFile",
         "input" : {
           "params" : [
-            { "name" : "file", "type" : "java.io.File" }
+            { "name" : "file", "type" : "java.io.File", "desc" : "" }
           ],
+          "map" : { },
           "code" : "out.files.remove(param.file);"
         },
         "guid" : "18B7119BB46F06C5"
@@ -405,7 +412,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 856 }
       },
-      "connect" : { "id" : "f50", "to" : "f49" }
+      "connect" : [
+        { "id" : "f50", "to" : "f49" }
+      ]
     }, {
       "id" : "f49",
       "type" : "HtmlDialogEnd",
@@ -425,11 +434,6 @@
       "config" : {
         "processCall" : "connector/Agreements:dowloadCombinedDocument(String,Boolean,String)",
         "call" : {
-          "params" : [
-            { "name" : "agreementId", "type" : "String" },
-            { "name" : "asFile", "type" : "Boolean" },
-            { "name" : "filename", "type" : "String" }
-          ],
           "map" : {
             "param.agreementId" : "in.agreementId",
             "param.asFile" : "true",
@@ -446,24 +450,26 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 688 }
       },
-      "connect" : { "id" : "f52", "to" : "f34" }
+      "connect" : [
+        { "id" : "f52", "to" : "f34" }
+      ]
     }, {
       "id" : "f8",
       "type" : "HtmlDialogMethodStart",
       "name" : "downloadCombinedDocument()",
       "config" : {
-        "callSignature" : "downloadCombinedDocument",
-        "result" : {
-          "params" : [
-            { "name" : "file", "type" : "org.primefaces.model.StreamedContent" }
-          ],
-          "map" : {
-            "result.file" : "in.documentContent"
-          }
-        },
+        "signature" : "downloadCombinedDocument",
         "input" : {
           "map" : {
             "out.filename" : "\"combined.pdf\""
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "file", "type" : "org.primefaces.model.StreamedContent", "desc" : "" }
+          ],
+          "map" : {
+            "result.file" : "in.documentContent"
           }
         },
         "guid" : "18B809A45A478B92"
@@ -471,6 +477,8 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 688 }
       },
-      "connect" : { "id" : "f12", "to" : "f35" }
+      "connect" : [
+        { "id" : "f12", "to" : "f35" }
+      ]
     } ]
 }
