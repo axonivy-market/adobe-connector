@@ -40,8 +40,7 @@ public class ProcessStartService {
 			if (processStart != null) {
 				return processStart;
 			}
-			List<IApplication> applicationsInSecurityContext = IApplicationRepository.instance()
-					.allOf(ISecurityContext.current());
+			List<IApplication> applicationsInSecurityContext = IApplicationRepository.of(ISecurityContext.current()).all();
 			for (IApplication app : applicationsInSecurityContext) {
 				IProcessStart findProcessStart = filterPMV(requestPath, app).findFirst().orElse(null);
 				if (findProcessStart != null) {

@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Locale;
 
-import org.apache.commons.compress.utils.IOUtils;
+import org.apache.commons.io.IOUtils;
 
 import ch.ivyteam.ivy.cm.ContentObjectValue;
 import ch.ivyteam.ivy.environment.Ivy;

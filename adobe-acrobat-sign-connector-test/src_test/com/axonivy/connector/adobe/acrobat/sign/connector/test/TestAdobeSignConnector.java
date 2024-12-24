@@ -5,6 +5,7 @@ import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.AppFixture;
 import ch.ivyteam.ivy.rest.client.RestClient;
 import ch.ivyteam.ivy.rest.client.RestClient.Builder;
+import ch.ivyteam.ivy.rest.client.RestClientFeature;
 import ch.ivyteam.ivy.rest.client.RestClients;
 
 @IvyProcessTest(enableWebServer = true)
@@ -23,8 +24,8 @@ public class TestAdobeSignConnector {
 				.uri("http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api/adobeSignMock")
 				.description(restClient.description()).properties(restClient.properties());
 
-		for (String feature : restClient.features()) {
-			builder.feature(feature);
+		for (RestClientFeature feature : restClient.features()) {
+			builder.feature(feature.clazz());
 		}
 
 		builder.feature("ch.ivyteam.ivy.rest.client.security.CsrfHeaderFeature");

@@ -141,7 +141,7 @@
         "call" : {
           "map" : {
             "param.agreementId" : "in.agreementId",
-            "param.frameParent" : "ivy.html.applicationHomeRef()"
+            "param.frameParent" : "ivy.html.applicationHomeLink().get()"
           }
         },
         "output" : {
@@ -345,7 +345,7 @@
         "call" : {
           "map" : {
             "param.agreementId" : "in.agreementId",
-            "param.frameParent" : "ivy.html.applicationHomeRef()"
+            "param.frameParent" : "ivy.html.applicationHomeLink().get()"
           }
         },
         "output" : {

@@ -33,16 +33,13 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "documents",
-    "type" : "api.rest.v6.client.AgreementDocuments",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "api.rest.v6.client.AgreementDocuments"
   }, {
     "name" : "documentContent",
-    "type" : "org.primefaces.model.StreamedContent",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "org.primefaces.model.StreamedContent"
   }, {
     "name" : "download",
-    "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.DownloadResult",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.DownloadResult"
   }, {
     "name" : "filename",
     "type" : "String",
@@ -53,7 +50,6 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "files",
-    "type" : "java.util.List<java.io.File>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.List<java.io.File>"
   } ]
 }
