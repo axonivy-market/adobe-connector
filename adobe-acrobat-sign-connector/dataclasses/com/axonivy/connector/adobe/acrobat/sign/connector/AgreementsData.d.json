@@ -1,0 +1,46 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "AgreementsData",
+  "namespace" : "com.axonivy.connector.adobe.acrobat.sign.connector",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "agreementCreation",
+    "type" : "api.rest.v6.client.AgreementCreationInfo"
+  }, {
+    "name" : "error",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+  }, {
+    "name" : "agreementCreationResponse",
+    "type" : "api.rest.v6.client.AgreementCreationResponse"
+  }, {
+    "name" : "agreementId",
+    "type" : "String"
+  }, {
+    "name" : "agreementInfo",
+    "type" : "api.rest.v6.client.AgreementInfo"
+  }, {
+    "name" : "signingUrls",
+    "type" : "java.util.List<api.rest.v6.client.SigningUrlResponseSigningUrlSetInfos>"
+  }, {
+    "name" : "frameParent",
+    "type" : "String"
+  }, {
+    "name" : "documents",
+    "type" : "api.rest.v6.client.AgreementDocuments"
+  }, {
+    "name" : "documentId",
+    "type" : "String"
+  }, {
+    "name" : "download",
+    "type" : "com.axonivy.connector.adobe.acrobat.sign.connector.rest.DownloadResult"
+  }, {
+    "name" : "filename",
+    "type" : "String"
+  }, {
+    "name" : "asFileOption",
+    "type" : "Boolean"
+  }, {
+    "name" : "formFieldPutInfo",
+    "type" : "api.rest.v6.client.FormFieldPutInfo"
+  } ]
+}

@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "1866EF03C86C6870",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,12 +10,14 @@
       "type" : "CallSubStart",
       "name" : "getUser()",
       "config" : {
-        "callSignature" : "getUser"
+        "signature" : "getUser"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -27,15 +29,21 @@
       "type" : "RestClientCall",
       "name" : "Get User",
       "config" : {
-        "path" : "/users",
-        "clientId" : "83e80d77-749b-4f53-aaf5-a796f2dab100",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "resultType" : "api.rest.v6.client.UsersInfo"
+        "target" : {
+          "clientId" : "83e80d77-749b-4f53-aaf5-a796f2dab100",
+          "path" : "/users"
+        },
+        "response" : {
+          "entity" : {
+            "type" : "api.rest.v6.client.UsersInfo"
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ]
 }

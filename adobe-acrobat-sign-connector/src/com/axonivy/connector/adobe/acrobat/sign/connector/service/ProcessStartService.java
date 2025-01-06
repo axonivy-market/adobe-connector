@@ -14,8 +14,8 @@ import ch.ivyteam.ivy.application.app.IApplicationRepository;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.ISecurityContext;
 import ch.ivyteam.ivy.security.exec.Sudo;
-import ch.ivyteam.ivy.workflow.IProcessStart;
 import ch.ivyteam.ivy.workflow.IWorkflowProcessModelVersion;
+import ch.ivyteam.ivy.workflow.start.IWebStartable;
 
 /**
  * Service for working with process starts. Code is from portal's
@@ -30,20 +30,19 @@ public class ProcessStartService {
 	 * @return start link or empty string
 	 */
 	public static String findRelativeUrlByProcessStartFriendlyRequestPath(String friendlyRequestPath) {
-		IProcessStart processStart = findProcessStartByUserFriendlyRequestPath(friendlyRequestPath);
+		IWebStartable processStart = findProcessStartByUserFriendlyRequestPath(friendlyRequestPath);
 		return processStart != null ? processStart.getLink().getRelative() : StringUtils.EMPTY;
 	}
 
-	private static IProcessStart findProcessStartByUserFriendlyRequestPath(String requestPath) {
+	private static IWebStartable findProcessStartByUserFriendlyRequestPath(String requestPath) {
 		return Sudo.get(() -> {
-			IProcessStart processStart = getProcessStart(requestPath, Ivy.request().getProcessModelVersion());
+			IWebStartable processStart = getProcessStart(requestPath, Ivy.request().getProcessModelVersion());
 			if (processStart != null) {
 				return processStart;
 			}
-			List<IApplication> applicationsInSecurityContext = IApplicationRepository.instance()
-					.allOf(ISecurityContext.current());
+			List<IApplication> applicationsInSecurityContext = IApplicationRepository.of(ISecurityContext.current()).all();
 			for (IApplication app : applicationsInSecurityContext) {
-				IProcessStart findProcessStart = filterPMV(requestPath, app).findFirst().orElse(null);
+				IWebStartable findProcessStart = filterPMV(requestPath, app).findFirst().orElse(null);
 				if (findProcessStart != null) {
 					return findProcessStart;
 				}
@@ -52,12 +51,12 @@ public class ProcessStartService {
 		});
 	}
 
-	private static IProcessStart getProcessStart(String requestPath, IProcessModelVersion processModelVersion) {
-		return IWorkflowProcessModelVersion.of(processModelVersion)
-				.findStartElementByUserFriendlyRequestPath(requestPath);
+	private static IWebStartable getProcessStart(String requestPath, IProcessModelVersion processModelVersion) {
+		return IWorkflowProcessModelVersion.of(processModelVersion).getAllStartables()
+				.filter(start -> StringUtils.contains(start.getId(), requestPath)).findAny().orElse(null);
 	}
 
-	private static Stream<IProcessStart> filterPMV(String requestPath, IApplication application) {
+	private static Stream<IWebStartable> filterPMV(String requestPath, IApplication application) {
 		return filterActivePMVOfApp(application).map(p -> getProcessStart(requestPath, p)).filter(Objects::nonNull);
 	}
 

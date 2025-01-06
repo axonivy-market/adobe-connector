@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "DemoData",
+  "namespace" : "com.axonivy.connector.adobe.acrobat.sign.connector.demo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "file",
+    "type" : "java.io.File"
+  }, {
+    "name" : "fileId",
+    "type" : "String"
+  }, {
+    "name" : "agreementId",
+    "type" : "String"
+  }, {
+    "name" : "error",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+  } ]
+}

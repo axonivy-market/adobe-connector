@@ -526,7 +526,7 @@ public class AdobeSignService {
 	 * @return
 	 */
 	private String getRequestBaseUrl() {
-		return Ivy.html().applicationHomeRef().replace(Ivy.request().getApplication().getContextPath(), "");
+		return Ivy.html().applicationHomeLink().getAbsolute().replace(Ivy.request().getApplication().getContextPath(), "");
 	}
 
 }
